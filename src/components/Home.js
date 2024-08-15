@@ -6,9 +6,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import cards from "../utils/dummyCards";
-import { DateCalendar } from "@mui/x-date-pickers";
-const Home = () => {
+import BasicDatePicker from "./common/BasicDatePicker";
+import { Typography } from "@mui/material";
 
+const Home = () => {
     // console.log(cards);
 
     return (
@@ -52,9 +53,15 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-between w-full relative">
-                <p className="">{cards.length} cards</p>
+
+            <div className="flex justify-between w-full relative items-center sm:w-2/3 sm:mx-auto md:w-full md:mx-0">
+                <Typography variant="subtitle1" className="">
+                    {cards.length} cards
+                </Typography>
+                {/* <p className="">{cards.length} cards</p> */}
+                <BasicDatePicker />
             </div>
+            
         </div>
     );
 };
