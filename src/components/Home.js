@@ -8,13 +8,12 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import cards from "../utils/dummyCards";
 import BasicDatePicker from "./common/BasicDatePicker";
 import { Typography } from "@mui/material";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const Home = () => {
-    // console.log(cards);
-
     return (
-        <div className="w-full h-full bg-gray-50 p-3">
-            <div className="bg-slate-200 p-2 rounded-md ">
+        <div className="w-full h-full bg-gray-50 p-3 flex flex-col">
+            <div className="bg-neutral-100 p-2 rounded-md ">
                 <div className="flex gap-2 mb-2">
                     <IconButton>
                         <MenuIcon />
@@ -61,7 +60,50 @@ const Home = () => {
                 {/* <p className="">{cards.length} cards</p> */}
                 <BasicDatePicker />
             </div>
-            
+
+            <div className="overflow-y-auto flex-1 mt-2">
+                {cards.map((card, index) => (
+                    <div
+                        key={card.id}
+                        className={`flex items-center justify-between py-1 overflow-hidden
+                        ${index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+                        hover:bg-gray-200 transition-colors duration-300`}>
+                            <div className="flex flex-1 w-9/12">
+                                <div className="flex-shrink-0 flex items-center justify-center">
+                                    <img
+                                        src={card.imgSrc}
+                                        alt=""
+                                        className="min-h-32 max-h-32 max-w-32 min-w-32"
+                                    />
+                                </div>
+                                <div className="p-2 flex-1 flex flex-col min-w-0">
+                                    <p className="text-lg font-medium truncate whitespace-nowrap">
+                                        {card.name}
+                                    </p>
+                                    <p className="text-gray-500 truncate whitespace-nowrap">
+                                        {card.company}
+                                    </p>
+                                    <p className="text-gray-500 truncate whitespace-nowrap">
+                                        {card.email}
+                                    </p>
+                                    <p className="text-gray-500 truncate whitespace-nowrap">
+                                        {card.phone}
+                                    </p>
+                                    <p className="text-gray-500 truncate whitespace-nowrap">
+                                        {card.type}
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <IconButton
+                                    className="text-blue-500"
+                                    size="small">
+                                    <KeyboardArrowRightIcon />
+                                </IconButton>
+                            </div>
+                        </div>
+                ))}
+            </div>
         </div>
     );
 };
