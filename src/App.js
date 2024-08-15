@@ -1,11 +1,13 @@
 import "./App.css";
-import Cards from "./components/Cards";
+// import Cards from "./components/Cards";
+import Home from "./components/Home";
 
 function App() {
     return (
-        <div className="App text-center font-bold underline">
-            Hello world
-            <Cards />
+        <div className="App">
+            {/* Hello world
+            <Cards /> */}
+            <Home />
         </div>
     );
 }
