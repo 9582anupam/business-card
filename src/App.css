@@ -1,0 +1,40 @@
+.App {
+    border-radius: 0;
+    box-shadow: 0px 0px 4.8px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    background-color: #0b0b0b; 
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+@media (min-width: 0px) and (max-width: 425px) {
+    .App {
+        height: 100svh;
+        width: 100vw;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 1026px) {
+    .App {
+        height: 100svh;
+        width: 100vw;
+    }
+}
+
+@media (min-width: 1027px) and (max-width: 1440px) {
+    .App {
+        width: 32.3vw;
+        height: 72vh;
+        border-radius: 0.5vw;
+    }
+}
+
+@media (min-width: 1441px) and (max-width: 3000px) {
+    .App {
+        width: 24.3vw;
+        height: 72vh;
+        border-radius: 0.5vw;
+    }
+}
