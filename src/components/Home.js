@@ -10,10 +10,11 @@ import BasicDatePicker from "./common/BasicDatePicker";
 import { Typography } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Link } from "react-router-dom";
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 const Home = () => {
     return (
-        <div className="w-full h-full bg-gray-50 p-3 flex flex-col">
+        <div className="w-full h-full bg-gray-50 p-3 flex flex-col relative">
             <div className="bg-neutral-100 p-2 rounded-md ">
                 <div className="flex gap-2 mb-2">
                     <IconButton>
@@ -109,6 +110,15 @@ const Home = () => {
                     </Link>
                 ))}
             </div>
+
+            <Link to={"/camera"}>
+                <div className="flex absolute justify-center items-center bg-sky-600 pr-3 pl-1 py-1 rounded-3xl bottom-4 right-4 cursor-pointer">
+                    <IconButton>
+                        <CameraAltIcon sx={{color: "white", height: "20px", width: "20px"}}/>
+                    </IconButton>
+                    <p className="text-white">SCAN</p>
+                </div>
+            </Link>
         </div>
     );
 };
