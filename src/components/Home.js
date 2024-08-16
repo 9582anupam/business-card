@@ -62,14 +62,14 @@ const Home = () => {
                 <BasicDatePicker />
             </div>
 
-            <div className="overflow-y-auto flex-1 mt-2">
+            <div className="overflow-y-auto flex-1 mt-2 gap-3 flex flex-col">
                 {cards.map((card, index) => (
                     <Link
                         key={index}
                         to={`/cardDetails/${index}`}
                         className="block">
                         <div
-                            className={`flex items-center justify-between py-1 overflow-hidden
+                            className={`flex items-center justify-between overflow-hidden hover:scale-[0.99] duration-200 transition-all
                 ${index % 2 === 0 ? "bg-gray-100" : "bg-white"}
                 hover:bg-gray-200 transition-colors duration-300`}>
                             <div className="flex flex-1 w-9/12">
@@ -80,7 +80,7 @@ const Home = () => {
                                         className="min-h-32 max-h-32 max-w-32 min-w-32"
                                     />
                                 </div>
-                                <div className="p-2 flex-1 flex flex-col min-w-0">
+                                <div className="px-2 flex-1 flex flex-col min-w-0">
                                     <p className="text-lg font-medium truncate whitespace-nowrap">
                                         {card.name}
                                     </p>
