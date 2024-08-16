@@ -1,13 +1,17 @@
 import "./App.css";
-// import Cards from "./components/Cards";
 import Home from "./components/Home";
+import CardDetails from "./components/CardDetails";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
     return (
         <div className="App">
-            {/* Hello world
-            <Cards /> */}
-            <Home />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/CardDetails/:id" element={<CardDetails />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

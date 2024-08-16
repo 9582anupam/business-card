@@ -5,10 +5,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import cards from "../utils/dummyCards";
+import cards from "../utils/constants/dummyCards";
 import BasicDatePicker from "./common/BasicDatePicker";
 import { Typography } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -63,11 +64,14 @@ const Home = () => {
 
             <div className="overflow-y-auto flex-1 mt-2">
                 {cards.map((card, index) => (
-                    <div
-                        key={card.id}
-                        className={`flex items-center justify-between py-1 overflow-hidden
-                        ${index % 2 === 0 ? "bg-gray-100" : "bg-white"}
-                        hover:bg-gray-200 transition-colors duration-300`}>
+                    <Link
+                        key={index}
+                        to={`/cardDetails/${index}`}
+                        className="block">
+                        <div
+                            className={`flex items-center justify-between py-1 overflow-hidden
+                ${index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+                hover:bg-gray-200 transition-colors duration-300`}>
                             <div className="flex flex-1 w-9/12">
                                 <div className="flex-shrink-0 flex items-center justify-center">
                                     <img
@@ -102,6 +106,7 @@ const Home = () => {
                                 </IconButton>
                             </div>
                         </div>
+                    </Link>
                 ))}
             </div>
         </div>
