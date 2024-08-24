@@ -6,11 +6,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import cards from "../utils/constants/dummyCards";
+import  { downloadData }  from "../utils/constants/dummyCards";
 import BasicDatePicker from "./common/BasicDatePicker";
 import { Typography } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Link } from "react-router-dom";
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import DownloadIcon from "@mui/icons-material/Download";
+import { CSVLink } from "react-csv";
 
 const Home = () => {
     return (
@@ -51,6 +54,21 @@ const Home = () => {
                             <AddBoxIcon />
                         </IconButton>
                         <p>New Group</p>
+                    </div>
+                    <div>
+                        <CSVLink
+                            data={downloadData}
+                            filename="contact-details.csv"
+                            className="text-black"
+                            separator={","}
+                            >
+                            <IconButton>
+                                <DownloadIcon
+                                    color="primary"
+                                    sx={{ height: "30px", width: "30px" }}
+                                />
+                            </IconButton>
+                        </CSVLink>
                     </div>
                 </div>
             </div>
@@ -114,7 +132,13 @@ const Home = () => {
             <Link to={"/camera"}>
                 <div className="flex absolute justify-center items-center bg-sky-600 pr-3 pl-1 py-1 rounded-3xl bottom-4 right-4 cursor-pointer">
                     <IconButton>
-                        <CameraAltIcon sx={{color: "white", height: "20px", width: "20px"}}/>
+                        <CameraAltIcon
+                            sx={{
+                                color: "white",
+                                height: "20px",
+                                width: "20px",
+                            }}
+                        />
                     </IconButton>
                     <p className="text-white">SCAN</p>
                 </div>

@@ -14,11 +14,23 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AddIcon from "@mui/icons-material/Add";
 import Input from "@mui/material/Input";
 import { Link } from "react-router-dom";
+import DownloadIcon from "@mui/icons-material/Download";
+import { CSVLink } from "react-csv";
 
 const CardDetails = () => {
     const { id } = useParams();
     const card = cards.filter((c, i) => i === parseInt(id, 10))[0];
     const { name, email, phone, company, type, imgSrc } = card;
+
+    // Generate CSV data dynamically
+    const csvData = [
+        ["Field", "Value"],
+        ["Full Name", name],
+        ["Email", email],
+        ["Phone", phone],
+        ["Company", company],
+        ["Job Title", type],
+    ];
 
     return (
         <div className="bg-gray-100 w-full h-full flex flex-col items-center">
@@ -78,6 +90,17 @@ const CardDetails = () => {
                                 sx={{ height: "30px", width: "30px" }}
                             />
                         </IconButton>
+                        <CSVLink
+                            data={csvData}
+                            filename="contact-details.csv"
+                            className="text-black">
+                            <IconButton>
+                                <DownloadIcon
+                                    color="primary"
+                                    sx={{ height: "30px", width: "30px" }}
+                                />
+                            </IconButton>
+                        </CSVLink>
                     </div>
                 </div>
 
