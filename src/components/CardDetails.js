@@ -104,15 +104,17 @@ const CardDetails = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center w-full sm:w-2/3 sm:mx-auto md:w-full md:mx-0 px-4">
-                    <img src={starIcon} alt="" className="h-6"></img>
-                    <p>Research {name} with AI</p>
-                    <IconButton>
-                        <ChevronRightIcon
-                            sx={{ height: "30px", width: "30px" }}
-                        />
-                    </IconButton>
-                </div>
+                <Link>
+                    <div className="flex justify-between items-center w-full sm:w-2/3 sm:mx-auto md:w-full md:mx-0 px-4">
+                        <img src={starIcon} alt="" className="h-6"></img>
+                        <p>Research {name} with AI</p>
+                        <IconButton>
+                            <ChevronRightIcon
+                                sx={{ height: "30px", width: "30px" }}
+                            />
+                        </IconButton>
+                    </div>
+                </Link>
 
                 <div className="mx-2">
                     <div className="w-full py-2 flex flex-col bg-white rounded-lg">
